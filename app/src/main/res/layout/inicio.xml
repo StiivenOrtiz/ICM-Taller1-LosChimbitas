@@ -31,7 +31,8 @@
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/boton2" />
+            android:layout_below="@+id/boton2"
+            android:entries="@array/inicio_spinner1_values" />
 
         <Button
             android:id="@+id/buton3"
