@@ -1,5 +1,6 @@
 package com.loschimbitas.icm_taller1_loschimbitas
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Spinner
@@ -17,24 +18,20 @@ class inicio : AppCompatActivity() {
 
         // Cambiar a la actividad de TicTacToe
         boton1.setOnClickListener {
-//            val intent = Intent(this, actividad)
-//            startActivity(intent)
+            startActivity(Intent(this, TicTacToe::class.java))
         }
 
         // Cambiar a la actividad de Random Greet
         boton2.setOnClickListener {
-//            val intent = Intent(this, actividad)
-//            startActivity(intent)
+            val intent = Intent(this, randomGreet::class.java)
+            intent.putExtra("idioma", spinner1.selectedItem.toString())
+            startActivity(intent)
         }
 
         // Cambiar a la actividad de Countries
         boton3.setOnClickListener {
-            // Obtenemos el valor del spinner
-//            val pais = spinner1.selectedItem.toString()
-//            val intent: String = Intent(this, actividad)
-            // Mandamos el valor del spinner a la actividad
-//            intent.putExtra("pais", pais)
-//            startActivity(intent)
+//           val intent = Intent(this, actividad)
+//           startActivity(intent)
         }
     }
 }
