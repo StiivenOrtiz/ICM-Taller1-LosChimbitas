@@ -6,5 +6,10 @@
     <string name="tic_tac_toe_textview1">PLAYER ONE (X)</string>
     <string name="tic_tac_toe_textview2">PLAYER TWO (O)</string>
     <string name="tic_tac_toe_boton10">New Game</string>
-    <string name="random_greet_textview1">Language: </string>
+    <string name="random_greet_textview1">Language:</string>
+    <string name="random_greet_English">Hello!</string>
+    <string name="random_greet_Spanish">Hola!</string>
+    <string name="random_greet_French">Bonjour!</string>
+    <string name="random_greet_German">Hallo!</string>
+    <string name="random_greet_Italian">Ciao!</string>
 </resources>
