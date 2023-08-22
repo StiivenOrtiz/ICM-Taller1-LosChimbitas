@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#03A9F4</color>
-    <color name="blue_dark">#3F51B5</color>
+    <color name="blue_dark">#3F51B4</color>
     <color name="green_light">#27FA21</color>
+    <color name="green">#4CAE50</color>
 </resources>

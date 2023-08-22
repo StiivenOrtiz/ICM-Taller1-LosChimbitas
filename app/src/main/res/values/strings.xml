@@ -3,4 +3,7 @@
     <string name="inicio_boton1">TicTacToe</string>
     <string name="inicio_boton2">Random Greet</string>
     <string name="inicio_boton3">Countries</string>
+    <string name="random_greet_textview1">PLAYER ONE (X)</string>
+    <string name="random_greet_textview2">PLAYER TWO (O)</string>
+    <string name="random_greet_boton10">New Game</string>
 </resources>
