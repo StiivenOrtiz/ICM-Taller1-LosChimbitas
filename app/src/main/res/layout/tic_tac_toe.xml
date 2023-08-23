@@ -40,21 +40,27 @@
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/boton2"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/boton3"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -70,21 +76,27 @@
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/boton5"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/boton6"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -100,21 +112,27 @@
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/boton8"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/boton9"
                 android:layout_width="110dp"
                 android:layout_height="90dp"
                 android:layout_margin="5dp"
-                android:backgroundTint="@color/blue_dark" />
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
