@@ -30,8 +30,8 @@ class inicio : AppCompatActivity() {
 
         // Cambiar a la actividad de Countries
         boton3.setOnClickListener {
-//           val intent = Intent(this, actividad)
-//           startActivity(intent)
+           val intent = Intent(this, countries::class.java)
+           startActivity(intent)
         }
     }
 }
