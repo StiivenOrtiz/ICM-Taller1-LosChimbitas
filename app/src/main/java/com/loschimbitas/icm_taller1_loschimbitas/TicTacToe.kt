@@ -38,140 +38,102 @@ class TicTacToe : AppCompatActivity() {
         var jugador: Int = 1
 
         boton10.setOnClickListener {
-            reiniciarBotones(
-                boton1,
-                boton2,
-                boton3,
-                boton4,
-                boton5,
-                boton6,
-                boton7,
-                boton8,
-                boton9
-            )
+            reiniciarBotones(listaBotones)
             jugador = 1
         }
 
         listaBotones.forEach { boton ->
             boton.setOnClickListener {
-                if (jugador == 1) {
-                    boton.text = "X"
-                    jugador = 2
-                } else {
-                    boton.text = "O"
-                    jugador = 1
-                }
+                jugador = juega(boton, jugador)
                 boton.isEnabled = false
-                hayGanador(
-                    boton1,
-                    boton2,
-                    boton3,
-                    boton4,
-                    boton5,
-                    boton6,
-                    boton7,
-                    boton8,
-                    boton9
-                )
+                hayGanador(listaBotones)
             }
         }
     }
 
-    fun hayGanador(
-        boton1: Button,
-        boton2: Button,
-        boton3: Button,
-        boton4: Button,
-        boton5: Button,
-        boton6: Button,
-        boton7: Button,
-        boton8: Button,
-        boton9: Button
-    ): Boolean {
-
+    fun hayGanador(listaBotones: List<Button>): Boolean {
         var retorno: Boolean = false
 
-        if (boton1.text == "X" && boton2.text == "X" && boton3.text == "X") {
-            cambiarColorBotonVerde(boton1)
-            cambiarColorBotonVerde(boton2)
-            cambiarColorBotonVerde(boton3)
+        if ((listaBotones[0].text == "X" && listaBotones[1].text == "X" && listaBotones[2].text == "X") || (listaBotones[0].text == "O" && listaBotones[1].text == "O" && listaBotones[2].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[0], listaBotones[1], listaBotones[2])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton4.text == "X" && boton5.text == "X" && boton6.text == "X") {
-            cambiarColorBotonVerde(boton4)
-            cambiarColorBotonVerde(boton5)
-            cambiarColorBotonVerde(boton6)
+        } else if ((listaBotones[3].text == "X" && listaBotones[4].text == "X" && listaBotones[5].text == "X") || (listaBotones[3].text == "O" && listaBotones[4].text == "O" && listaBotones[5].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[3], listaBotones[4], listaBotones[5])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton7.text == "X" && boton8.text == "X" && boton9.text == "X") {
-            cambiarColorBotonVerde(boton7)
-            cambiarColorBotonVerde(boton8)
-            cambiarColorBotonVerde(boton9)
+        } else if ((listaBotones[6].text == "X" && listaBotones[7].text == "X" && listaBotones[8].text == "X") || (listaBotones[6].text == "O" && listaBotones[7].text == "O" && listaBotones[8].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[6], listaBotones[7], listaBotones[8])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton1.text == "X" && boton4.text == "X" && boton7.text == "X") {
-            cambiarColorBotonVerde(boton1)
-            cambiarColorBotonVerde(boton4)
-            cambiarColorBotonVerde(boton7)
+        } else if ((listaBotones[0].text == "X" && listaBotones[3].text == "X" && listaBotones[6].text == "X") || (listaBotones[0].text == "O" && listaBotones[3].text == "O" && listaBotones[6].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[0], listaBotones[3], listaBotones[6])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton2.text == "X" && boton5.text == "X" && boton8.text == "X") {
-            cambiarColorBotonVerde(boton2)
-            cambiarColorBotonVerde(boton5)
-            cambiarColorBotonVerde(boton8)
+        } else if ((listaBotones[1].text == "X" && listaBotones[4].text == "X" && listaBotones[7].text == "X") || (listaBotones[1].text == "O" && listaBotones[4].text == "O" && listaBotones[7].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[1], listaBotones[4], listaBotones[7])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton3.text == "X" && boton6.text == "X" && boton9.text == "X") {
-            cambiarColorBotonVerde(boton3)
-            cambiarColorBotonVerde(boton6)
-            cambiarColorBotonVerde(boton9)
+        } else if ((listaBotones[2].text == "X" && listaBotones[5].text == "X" && listaBotones[8].text == "X") || (listaBotones[2].text == "O" && listaBotones[5].text == "O" && listaBotones[8].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[2], listaBotones[5], listaBotones[8])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton1.text == "X" && boton5.text == "X" && boton9.text == "X") {
-            cambiarColorBotonVerde(boton1)
-            cambiarColorBotonVerde(boton5)
-            cambiarColorBotonVerde(boton9)
+        } else if ((listaBotones[0].text == "X" && listaBotones[4].text == "X" && listaBotones[8].text == "X") || (listaBotones[0].text == "O" && listaBotones[4].text == "O" && listaBotones[8].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[0], listaBotones[4], listaBotones[8])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
-        } else if (boton3.text == "X" && boton5.text == "X" && boton7.text == "X") {
-            cambiarColorBotonVerde(boton3)
-            cambiarColorBotonVerde(boton5)
-            cambiarColorBotonVerde(boton7)
+        } else if ((listaBotones[2].text == "X" && listaBotones[4].text == "X" && listaBotones[6].text == "X") || (listaBotones[2].text == "O" && listaBotones[4].text == "O" && listaBotones[6].text == "O")) {
+            val listaBotonesCambiarColor = listOf(listaBotones[2], listaBotones[4], listaBotones[6])
+            cambiarColorBotonVerde(listaBotonesCambiarColor)
             retorno = true
         }
+
+        if (retorno)
+            apagarBotones(listaBotones)
+
         return retorno
     }
 
-    fun reiniciarBotones(
-        boton1: Button,
-        boton2: Button,
-        boton3: Button,
-        boton4: Button,
-        boton5: Button,
-        boton6: Button,
-        boton7: Button,
-        boton8: Button,
-        boton9: Button
-    ) {
-        // hacemos una lista de los botones
-        val listaBotones = listOf<Button>(
-            boton1,
-            boton2,
-            boton3,
-            boton4,
-            boton5,
-            boton6,
-            boton7,
-            boton8,
-            boton9
-        )
-
+    fun reiniciarBotones(listaBotones: List<Button>) {
         // cambiamos el color de los botones a su color default y los habilitamos
         listaBotones.forEach { boton ->
-            cambiarColorBotonDefault(boton)
             boton.isEnabled = true
             boton.text = ""
         }
+        cambiarColorBotonDefault(listaBotones)
     }
 
-    fun cambiarColorBotonDefault(boton: Button) {
-        boton.backgroundTintList = resources.getColorStateList(R.color.blue_dark)
+    fun cambiarColorBotonDefault(listaBotones: List<Button>) {
+        listaBotones.forEach { boton ->
+            boton.backgroundTintList = resources.getColorStateList(R.color.blue_dark)
+        }
     }
 
-    fun cambiarColorBotonVerde(boton: Button) {
-        boton.backgroundTintList = resources.getColorStateList(R.color.green_light)
+    fun cambiarColorBotonVerde(listaBotones: List<Button>) {
+        listaBotones.forEach { boton ->
+            boton.backgroundTintList = resources.getColorStateList(R.color.green_light)
+        }
+    }
+
+    fun apagarBotones(
+        listaBotones: List<Button>
+    ) {
+        // cambiamos el color de los botones a su color default y los habilitamos
+        listaBotones.forEach { boton ->
+            boton.isEnabled = false
+        }
+    }
+
+    fun juega(button: Button, jugador: Int): Int {
+        var siguienteJugador: Int = 0
+        if (jugador == 1) {
+            button.text = "X"
+            siguienteJugador = 2
+        } else {
+            button.text = "O"
+            siguienteJugador = 1
+        }
+        button.isEnabled = false
+        return siguienteJugador
     }
 }
