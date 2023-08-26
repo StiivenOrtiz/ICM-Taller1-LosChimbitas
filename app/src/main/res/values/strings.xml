@@ -13,4 +13,8 @@
     <string name="random_greet_German">Hallo!</string>
     <string name="random_greet_Italian">Ciao!</string>
     <string name="countries_textview">Countries</string>
+    <string name="show_country_textView2">Capital</string>
+    <string name="show_country_textView4">Nombre Internacional</string>
+    <string name="show_country_textView6">Sigla</string>
+    <string name="show_country_button1">Buscar en Wikipedia</string>
 </resources>

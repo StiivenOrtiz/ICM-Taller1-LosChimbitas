@@ -42,7 +42,9 @@ android {
     }
 }
 
+
 dependencies {
+    implementation("com.github.murgupluoglu:flagkit-android:1.0.2")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
