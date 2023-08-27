@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ICM-Taller1-LosChimbitas</string>
+    <string name="inicio_boton1">TicTacToe</string>
+    <string name="inicio_boton2">Random Greet</string>
+    <string name="inicio_boton3">Countries</string>
+    <string name="tic_tac_toe_textview1">PLAYER ONE (X)</string>
+    <string name="tic_tac_toe_textview2">PLAYER TWO (O)</string>
+    <string name="tic_tac_toe_boton10">New Game</string>
+    <string name="random_greet_textview1">Language:</string>
+    <string name="random_greet_English">Hello!</string>
+    <string name="random_greet_Spanish">Hola!</string>
+    <string name="random_greet_French">Bonjour!</string>
+    <string name="random_greet_German">Hallo!</string>
+    <string name="random_greet_Italian">Ciao!</string>
+    <string name="countries_textview">Countries</string>
+    <string name="show_country_textView2">Capital</string>
+    <string name="show_country_textView4">Nombre Internacional</string>
+    <string name="show_country_textView6">Sigla</string>
+    <string name="show_country_button1">Buscar en Wikipedia</string>
 </resources>
