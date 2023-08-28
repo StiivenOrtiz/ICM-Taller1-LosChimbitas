@@ -13,25 +13,13 @@ class randomGreet : AppCompatActivity() {
         if (idioma != null) {
             findViewById<TextView>(R.id.textView1).text =
                 findViewById<TextView>(R.id.textView1).text.toString() + " " + idioma
-            saludar(idioma, findViewById(R.id.textView2))
-        }
-    }
-
-    fun saludar(idioma: String, textView: TextView) {
-        var saludo = ""
-        val idiomas = resources.getStringArray(R.array.inicio_spinner1_values)
-        //Si el idioma seleccionado coincide con el idioma del array, se asigna el saludo correspondiente
-        idiomas.forEach { i ->
-            if (idioma == i) {
-                saludo = getString(
-                    resources.getIdentifier(
-                        "random_greet_" + i,
-                        "string",
-                        "com.loschimbitas.icm_taller1_loschimbitas"
-                    )
+            findViewById<TextView>(R.id.textView2).text = getString(
+                resources.getIdentifier(
+                    "random_greet_$idioma",
+                    "string",
+                    "com.loschimbitas.icm_taller1_loschimbitas"
                 )
-            }
+            )
         }
-        textView.text = saludo
     }
 }
