@@ -9,18 +9,16 @@ class randomGreet : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.random_greet)
 
-        val textView1: TextView = findViewById(R.id.textView1)
-        val textView2: TextView = findViewById(R.id.textView2)
         val idioma = intent.getStringExtra("idioma")
-
-        textView1.text = textView1.text.toString() + " " + idioma
         if (idioma != null) {
-            saludar(idioma, textView2)
+            findViewById<TextView>(R.id.textView1).text =
+                findViewById<TextView>(R.id.textView1).text.toString() + " " + idioma
+            saludar(idioma, findViewById(R.id.textView2))
         }
     }
 
     fun saludar(idioma: String, textView: TextView) {
-        var saludo: String = ""
+        var saludo = ""
         val idiomas = resources.getStringArray(R.array.inicio_spinner1_values)
         //Si el idioma seleccionado coincide con el idioma del array, se asigna el saludo correspondiente
         idiomas.forEach { i ->

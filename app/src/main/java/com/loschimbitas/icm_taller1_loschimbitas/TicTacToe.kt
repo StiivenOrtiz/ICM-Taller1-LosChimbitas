@@ -11,36 +11,20 @@ class TicTacToe : AppCompatActivity() {
         iniciarJuego()
     }
 
-    fun iniciarJuego() {
-        val boton1: Button = findViewById(R.id.boton1)
-        val boton2: Button = findViewById(R.id.boton2)
-        val boton3: Button = findViewById(R.id.boton3)
-        val boton4: Button = findViewById(R.id.boton4)
-        val boton5: Button = findViewById(R.id.boton5)
-        val boton6: Button = findViewById(R.id.boton6)
-        val boton7: Button = findViewById(R.id.boton7)
-        val boton8: Button = findViewById(R.id.boton8)
-        val boton9: Button = findViewById(R.id.boton9)
-        val boton10: Button = findViewById(R.id.boton10)
-
+    private fun iniciarJuego() {
         val listaBotones = listOf<Button>(
-            boton1,
-            boton2,
-            boton3,
-            boton4,
-            boton5,
-            boton6,
-            boton7,
-            boton8,
-            boton9
+            findViewById(R.id.boton1),
+            findViewById(R.id.boton2),
+            findViewById(R.id.boton3),
+            findViewById(R.id.boton4),
+            findViewById(R.id.boton5),
+            findViewById(R.id.boton6),
+            findViewById(R.id.boton7),
+            findViewById(R.id.boton8),
+            findViewById(R.id.boton9)
         )
 
-        var jugador: Int = 1
-
-        boton10.setOnClickListener {
-            reiniciarBotones(listaBotones)
-            jugador = 1
-        }
+        var jugador = 1
 
         listaBotones.forEach { boton ->
             boton.setOnClickListener {
@@ -49,52 +33,110 @@ class TicTacToe : AppCompatActivity() {
                 hayGanador(listaBotones)
             }
         }
-    }
 
-    fun hayGanador(listaBotones: List<Button>): Boolean {
-        var retorno: Boolean = false
-
-        if ((listaBotones[0].text == "X" && listaBotones[1].text == "X" && listaBotones[2].text == "X") || (listaBotones[0].text == "O" && listaBotones[1].text == "O" && listaBotones[2].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[0], listaBotones[1], listaBotones[2])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[3].text == "X" && listaBotones[4].text == "X" && listaBotones[5].text == "X") || (listaBotones[3].text == "O" && listaBotones[4].text == "O" && listaBotones[5].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[3], listaBotones[4], listaBotones[5])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[6].text == "X" && listaBotones[7].text == "X" && listaBotones[8].text == "X") || (listaBotones[6].text == "O" && listaBotones[7].text == "O" && listaBotones[8].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[6], listaBotones[7], listaBotones[8])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[0].text == "X" && listaBotones[3].text == "X" && listaBotones[6].text == "X") || (listaBotones[0].text == "O" && listaBotones[3].text == "O" && listaBotones[6].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[0], listaBotones[3], listaBotones[6])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[1].text == "X" && listaBotones[4].text == "X" && listaBotones[7].text == "X") || (listaBotones[1].text == "O" && listaBotones[4].text == "O" && listaBotones[7].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[1], listaBotones[4], listaBotones[7])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[2].text == "X" && listaBotones[5].text == "X" && listaBotones[8].text == "X") || (listaBotones[2].text == "O" && listaBotones[5].text == "O" && listaBotones[8].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[2], listaBotones[5], listaBotones[8])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[0].text == "X" && listaBotones[4].text == "X" && listaBotones[8].text == "X") || (listaBotones[0].text == "O" && listaBotones[4].text == "O" && listaBotones[8].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[0], listaBotones[4], listaBotones[8])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
-        } else if ((listaBotones[2].text == "X" && listaBotones[4].text == "X" && listaBotones[6].text == "X") || (listaBotones[2].text == "O" && listaBotones[4].text == "O" && listaBotones[6].text == "O")) {
-            val listaBotonesCambiarColor = listOf(listaBotones[2], listaBotones[4], listaBotones[6])
-            cambiarColorBotonVerde(listaBotonesCambiarColor)
-            retorno = true
+        findViewById<Button>(R.id.boton10).setOnClickListener {
+            reiniciarBotones(listaBotones)
+            jugador = 1
         }
-
-        if (retorno)
-            apagarBotones(listaBotones)
-
-        return retorno
     }
 
-    fun reiniciarBotones(listaBotones: List<Button>) {
+    private fun hayGanador(listaBotones: List<Button>) {
+        for (i in 0..2)
+            if (verificarVertical(i, listaBotones))
+                return
+        for (i in 0..6 step 3)
+            if (verificarHorizontal(i, listaBotones))
+                return
+        for (i in 1..2)
+            if (verificarDiagonal(listaBotones, i))
+                return
+    }
+
+    private fun verificarHorizontal(inicial: Int, listaBotones: List<Button>): Boolean {
+        var ganador = false
+        if (recorridoH(inicial, listaBotones, "X") || recorridoH(inicial, listaBotones, "O")) {
+            var botonesACambiar: List<Button> = listOf()
+            for (i in inicial..(inicial + 2))
+                botonesACambiar += listaBotones[i]
+            cambiarColorBotonVerde(botonesACambiar)
+            apagarBotones(listaBotones)
+            ganador = true
+        }
+        return ganador
+    }
+
+    private fun verificarVertical(inicial: Int, listaBotones: List<Button>): Boolean {
+        var ganador = false
+        if (recorridoV(inicial, listaBotones, "X") || recorridoV(inicial, listaBotones, "O")) {
+            var botonesACambiar: List<Button> = listOf()
+            for (i in inicial..(inicial + 6) step 3)
+                botonesACambiar += listaBotones[i]
+            cambiarColorBotonVerde(botonesACambiar)
+            apagarBotones(listaBotones)
+            ganador = true
+        }
+        return ganador
+    }
+
+    private fun verificarDiagonal(listaBotones: List<Button>, sentido: Int): Boolean {
+        var ganador = false
+        if (recorridoD(listaBotones, "X", sentido) || recorridoD(listaBotones, "O", sentido)) {
+            var botonesACambiar: List<Button> = listOf()
+            if (sentido == 1)
+                for (i in 0..8 step 4)
+                    botonesACambiar += listaBotones[i]
+            else
+                for (i in 2..6 step 2)
+                    botonesACambiar += listaBotones[i]
+            cambiarColorBotonVerde(botonesACambiar)
+            ganador = true
+            apagarBotones(listaBotones)
+        }
+        return ganador
+    }
+
+    private fun recorridoH(
+        inicial: Int, listaBotones: List<Button>, jugador: String
+    ): Boolean {
+        var coincide = true
+        for (i in inicial..(inicial + 2))
+            if (listaBotones[i].text != jugador) {
+                coincide = false
+                break
+            }
+        return coincide
+    }
+
+    private fun recorridoV(inicial: Int, listaBotones: List<Button>, jugador: String): Boolean {
+        var coincide = true
+        for (i in inicial..(inicial + 6) step 3)
+            if (listaBotones[i].text != jugador) {
+                coincide = false
+                break
+            }
+        return coincide
+    }
+
+    private fun recorridoD(listaBotones: List<Button>, jugador: String, sentido: Int): Boolean {
+        var coincide = true
+        if (sentido == 1)
+            for (i in 0..8 step 4) {
+                if (listaBotones[i].text != jugador) {
+                    coincide = false
+                    break
+                }
+            }
+        else
+            for (i in 2..6 step 2)
+                if (listaBotones[i].text != jugador) {
+                    coincide = false
+                    break
+                }
+        return coincide
+    }
+
+
+    private fun reiniciarBotones(listaBotones: List<Button>) {
         // cambiamos el color de los botones a su color default y los habilitamos
         listaBotones.forEach { boton ->
             boton.isEnabled = true
@@ -103,19 +145,19 @@ class TicTacToe : AppCompatActivity() {
         cambiarColorBotonDefault(listaBotones)
     }
 
-    fun cambiarColorBotonDefault(listaBotones: List<Button>) {
+    private fun cambiarColorBotonDefault(listaBotones: List<Button>) {
         listaBotones.forEach { boton ->
             boton.backgroundTintList = resources.getColorStateList(R.color.blue_dark)
         }
     }
 
-    fun cambiarColorBotonVerde(listaBotones: List<Button>) {
+    private fun cambiarColorBotonVerde(listaBotones: List<Button>) {
         listaBotones.forEach { boton ->
             boton.backgroundTintList = resources.getColorStateList(R.color.green_light)
         }
     }
 
-    fun apagarBotones(
+    private fun apagarBotones(
         listaBotones: List<Button>
     ) {
         // cambiamos el color de los botones a su color default y los habilitamos
@@ -124,8 +166,8 @@ class TicTacToe : AppCompatActivity() {
         }
     }
 
-    fun juega(button: Button, jugador: Int): Int {
-        var siguienteJugador: Int = 0
+    private fun juega(button: Button, jugador: Int): Int {
+        val siguienteJugador: Int
         if (jugador == 1) {
             button.text = "X"
             siguienteJugador = 2

@@ -11,27 +11,22 @@ class inicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.inicio)
 
-        val boton1: Button = findViewById(R.id.boton1)
-        val boton2: Button = findViewById(R.id.boton2)
-        val boton3: Button = findViewById(R.id.boton3)
-        val spinner1: Spinner = findViewById(R.id.spinner1)
+        iniciarBoton(findViewById(R.id.boton1), TicTacToe::class.java)
+        iniciarBoton(findViewById(R.id.boton2), randomGreet::class.java)
+        iniciarBoton(findViewById(R.id.boton3), countries::class.java)
+    }
 
-        // Cambiar a la actividad de TicTacToe
-        boton1.setOnClickListener {
-            startActivity(Intent(this, TicTacToe::class.java))
-        }
-
-        // Cambiar a la actividad de Random Greet
-        boton2.setOnClickListener {
-            val intent = Intent(this, randomGreet::class.java)
-            intent.putExtra("idioma", spinner1.selectedItem.toString())
-            startActivity(intent)
-        }
-
-        // Cambiar a la actividad de Countries
-        boton3.setOnClickListener {
-           val intent = Intent(this, countries::class.java)
-           startActivity(intent)
+    fun iniciarBoton(boton: Button, clase: Class<*>) {
+        boton.setOnClickListener {
+            if (clase == randomGreet::class.java) {
+                val intent = Intent(this, randomGreet::class.java)
+                intent.putExtra(
+                    "idioma",
+                    findViewById<Spinner>(R.id.spinner1).selectedItem.toString()
+                )
+                startActivity(intent)
+            } else
+                startActivity(Intent(this, clase))
         }
     }
 }

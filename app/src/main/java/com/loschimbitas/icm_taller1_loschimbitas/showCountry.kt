@@ -22,16 +22,16 @@ class showCountry : AppCompatActivity() {
         val boton1: Button = findViewById(R.id.buton1) // Botón para ir a la siguiente actividad
 
         if (pais != null) {
-            val textView3: TextView = findViewById(R.id.textView3) // Capital del país
-            val textView5: TextView = findViewById(R.id.textView5) // Nombre internacional del país
-            val textView7: TextView = findViewById(R.id.textView7) // Sigla del país
-            val imageView: ImageView = findViewById(R.id.imageView1) // Bandera del país
-
             textView1.text = pais.nombre_pais
-            textView3.text = pais.capital
-            textView5.text = pais.nombre_pais_int
-            textView7.text = pais.sigla
-            imageView.setImageResource(FlagKit.getResId(this, pais.sigla))
+            findViewById<TextView>(R.id.textView3).text = pais.capital
+            findViewById<TextView>(R.id.textView5).text = pais.nombre_pais_int
+            findViewById<TextView>(R.id.textView7).text = pais.sigla
+            findViewById<ImageView>(R.id.imageView1).setImageResource(
+                FlagKit.getResId(
+                    this,
+                    pais.sigla
+                )
+            )
 
             boton1.setOnClickListener {
                 val intent = intent

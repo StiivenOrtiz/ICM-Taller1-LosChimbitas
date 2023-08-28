@@ -18,20 +18,11 @@ class CountriesAdapter(private val mContext: Context, private val listaPaises: L
 
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-
         val layout = LayoutInflater.from(mContext).inflate(R.layout.adapter_country, parent, false)
-
-        val textViewNombrePais: TextView = layout.findViewById(R.id.textView1)
-        val imageViewBanderaPais: ImageView = layout.findViewById(R.id.imageView1)
-
-        textViewNombrePais.text = listaPaises[position].nombre_pais
-        imageViewBanderaPais.setImageResource(
-            FlagKit.getResId(
-                context,
-                listaPaises[position].sigla
-            )
+        layout.findViewById<TextView>(R.id.textView1).text = listaPaises[position].nombre_pais
+        layout.findViewById<ImageView>(R.id.imageView1).setImageResource(
+            FlagKit.getResId(context, listaPaises[position].sigla)
         )
-
         return layout
     }
 }

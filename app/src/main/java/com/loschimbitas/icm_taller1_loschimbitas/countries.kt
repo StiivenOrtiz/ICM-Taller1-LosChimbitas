@@ -20,12 +20,8 @@ class countries : AppCompatActivity() {
 
     fun init() {
         val list: ListView = findViewById(R.id.listView)
-
-        val json = JSONObject(loadJSONFromAsset())
-        val paisesJsonArray = json.getJSONArray("paises")
-
+        val paisesJsonArray = JSONObject(loadJSONFromAsset()).getJSONArray("paises")
         var listaPaises: List<Pais> = listOf()
-
 
         for (i in 0 until paisesJsonArray.length()) {
             val pais = paisesJsonArray.getJSONObject(i)
@@ -39,7 +35,6 @@ class countries : AppCompatActivity() {
         }
 
         val adapter = CountriesAdapter(this, listaPaises)
-
         list.adapter = adapter
 
         list.setOnItemClickListener { parent, view, position, id ->
