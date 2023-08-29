@@ -6,8 +6,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.loschimbitas.icm_taller1_loschimbitas.Modelo.Pais
-import com.murgupluoglu.flagkit.FlagKit
+import java.util.Locale
 
 class showCountry : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +27,10 @@ class showCountry : AppCompatActivity() {
             findViewById<TextView>(R.id.textView3).text = pais.capital
             findViewById<TextView>(R.id.textView5).text = pais.nombre_pais_int
             findViewById<TextView>(R.id.textView7).text = pais.sigla
-            findViewById<ImageView>(R.id.imageView1).setImageResource(
-                FlagKit.getResId(
-                    this,
-                    pais.sigla
-                )
-            )
+
+            Glide.with(this)
+                .load("https://flagcdn.com/w2560/${pais.sigla.lowercase(Locale.ROOT)}.png")
+                .into(findViewById<ImageView>(R.id.imageView1))
 
             boton1.setOnClickListener {
                 val intent = intent
