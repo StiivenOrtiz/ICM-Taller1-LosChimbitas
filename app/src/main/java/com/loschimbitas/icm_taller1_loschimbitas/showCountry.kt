@@ -1,14 +1,13 @@
 package com.loschimbitas.icm_taller1_loschimbitas // Declarar el paquete
 
-import android.os.Bundle // Importar clase para manejar el Bundle
-import android.util.Log // Importar clase para manejar el Log
-import android.widget.Button // Importar clase para manejar el Button
-import android.widget.ImageView // Importar clase para manejar el ImageView
-import android.widget.TextView // Importar clase para manejar el TextView
-import androidx.appcompat.app.AppCompatActivity // Importar clase para manejar la actividad
-import com.bumptech.glide.Glide // Importar clase para manejar el Glide
-import com.loschimbitas.icm_taller1_loschimbitas.Modelo.Pais // Importar clase para manejar el modelo de país
-import java.util.Locale // Importar clase para manejar el Locale
+import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.loschimbitas.icm_taller1_loschimbitas.Modelo.Pais
 
 class showCountry : AppCompatActivity() { // Actividad para mostrar la información de un país
     override fun onCreate(savedInstanceState: Bundle?) { // Al crear la actividad
@@ -31,7 +30,7 @@ class showCountry : AppCompatActivity() { // Actividad para mostrar la informaci
             findViewById<TextView>(R.id.textView7).text = pais.sigla // Establecer la sigla del país
 
             Glide.with(this) // Cargar la bandera del país
-                .load("https://flagcdn.com/w2560/${pais.sigla.lowercase(Locale.ROOT)}.png") // URL de la bandera
+                .load("https://flagcdn.com/w2560/${pais.sigla.lowercase()}.png") // URL de la bandera
                 .into(findViewById<ImageView>(R.id.imageView1)) // ImageView para mostrar la bandera
 
             boton1.setOnClickListener { // Al hacer clic en el botón
