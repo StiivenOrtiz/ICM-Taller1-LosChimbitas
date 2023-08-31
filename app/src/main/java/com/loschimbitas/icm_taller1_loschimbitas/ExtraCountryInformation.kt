@@ -1,36 +1,38 @@
-package com.loschimbitas.icm_taller1_loschimbitas
+package com.loschimbitas.icm_taller1_loschimbitas // Declarar el paquete
 
-import android.annotation.SuppressLint
-import android.os.Bundle
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint // Importar anotación para permitir JavaScript
+import android.os.Bundle // Importar clase para manejar el Bundle
+import android.webkit.WebView // Importar clase para manejar el WebView
+import android.webkit.WebViewClient // Importar clase para manejar el WebView en la misma app
+import android.widget.TextView // Importar clase para manejar el TextView
+import androidx.appcompat.app.AppCompatActivity // Importar clase para manejar la actividad
 
-class ExtraCountryInformation : AppCompatActivity() {
-    @SuppressLint("SetJavaScriptEnabled")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.extra_country_information)
-        init()
+class ExtraCountryInformation :
+    AppCompatActivity() { // Actividad para mostrar información adicional de un país
+    @SuppressLint("SetJavaScriptEnabled") // Permitir JavaScript
+    override fun onCreate(savedInstanceState: Bundle?) { // Al crear la actividad
+        super.onCreate(savedInstanceState) // Ejecutar el constructor de la clase padre
+        setContentView(R.layout.extra_country_information) // Establecer el layout
+        init() // Inicializar
     }
 
-    @SuppressLint("SetJavaScriptEnabled", "SetTextI18n")
-    fun init() {
-        val pais = intent.getStringExtra("pais")
-        val webView1: WebView = findViewById(R.id.webView1)
-        val textView1: TextView = findViewById(R.id.textView1)
+    @SuppressLint(
+        "SetJavaScriptEnabled",
+        "SetTextI18n"
+    ) // Permitir JavaScript y texto internacional
+    fun init() { // Inicializar
+        val pais = intent.getStringExtra("pais") // Obtener el país
+        val webView1: WebView = findViewById(R.id.webView1) // Obtener el WebView
+        val textView1: TextView = findViewById(R.id.textView1) // Obtener el TextView
 
-        webView1.webChromeClient = object : WebChromeClient() {}
-        webView1.webViewClient = object : WebViewClient() {}
-        webView1.settings.javaScriptEnabled = true
+        webView1.webViewClient = object : WebViewClient() {} // Ejecutar en la misma app
+        webView1.settings.javaScriptEnabled = true // Permitir JavaScript
 
-        if (pais != null) {
-            pais.replace(" ", "_")
-            textView1.text = pais
-            webView1.loadUrl("https://en.wikipedia.org/wiki/$pais")
-        } else
-            textView1.text = "No se pudo cargar el país"
+        if (pais != null) { // Si el país no es nulo
+            pais.replace(" ", "_") // Reemplazar espacios por guiones bajos
+            textView1.text = pais // Mostrar el nombre del país
+            webView1.loadUrl("https://en.wikipedia.org/wiki/$pais") // Cargar la página de Wikipedia
+        } else // Si el país es nulo
+            textView1.text = "No se pudo cargar el país" // Mostrar un mensaje de error
     }
 }
